@@ -1,6 +1,6 @@
 # Government Scheme Finder
 
-A full-stack web application for discovering Indian government welfare schemes based on user eligibility. It includes a React + Tailwind frontend, Express API, MongoDB model and seed script, bundled JSON fallback data, OpenAI chatbot endpoint, Web Speech API voice input, and English/Hindi i18n.
+A full-stack web application for discovering Indian government welfare schemes based on user eligibility. It includes a React + Tailwind frontend, Express API, MongoDB model and seed script, bundled JSON fallback data, chatbot endpoint, Web Speech API voice input
 
 ## Project Structure
 
@@ -63,9 +63,8 @@ The older static prototype files at the repo root are not required for the produ
 - Eligibility form: age, gender, state, income, category, and occupation.
 - Rule-based eligibility engine returning only matching schemes.
 - Scheme cards with benefits, eligibility, required documents, and official application links.
-- Chatbot endpoint at `POST /api/chat`, using OpenAI when `OPENAI_API_KEY` is configured and a local rule-based fallback otherwise.
+- Chatbot endpoint at `POST /api/chat`, ` is configured and a local rule-based fallback otherwise.
 - Voice input through the browser Web Speech API.
-- English and Hindi support through `i18next`.
 - Express validation, centralized errors, Helmet, CORS, rate limiting, MongoDB support, and JSON fallback data.
 - Production mode can serve the built React app and API from one public URL.
 
@@ -142,9 +141,6 @@ Recommended `server/.env`:
 
 ```env
 MONGODB_URI=mongodb://127.0.0.1:27017/government-scheme-finder
-OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_MODEL=gpt-4.1-mini
-PORT=5000
 CLIENT_ORIGIN=http://localhost:5173
 SERVE_CLIENT=true
 ```
@@ -163,12 +159,7 @@ Start development:
 npm run dev
 ```
 
-Open:
-
-- Frontend: `http://localhost:5173`
-- Backend health: `http://localhost:5000/health`
-
-To test from another device on the same Wi-Fi, open `http://YOUR_COMPUTER_LAN_IP:5173` while the dev server is running.
+Open:https://v0-localhost-website-rho.vercel.app/
 
 ## Production Build
 
@@ -179,7 +170,7 @@ $env:SERVE_CLIENT="true"
 npm run start
 ```
 
-Open `http://localhost:5000`. In production, Express serves `client/dist` and the API from the same origin, so browser requests use `/api`.
+Open https://v0-localhost-website-rho.vercel.app/ In production, Express serves `client/dist` and the API from the same origin, so browser requests use `/api`.
 
 ## Public URL Deployment
 
@@ -194,8 +185,6 @@ Open `http://localhost:5000`. In production, Express serves `client/dist` and th
    - `NODE_ENV=production`
    - `SERVE_CLIENT=true`
    - `MONGODB_URI=<your MongoDB Atlas connection string>`
-   - `OPENAI_API_KEY=<your OpenAI API key>`
-   - `OPENAI_MODEL=gpt-4.1-mini`
    - `CLIENT_ORIGIN=<your Render public URL>`
 5. Deploy. Render will provide a public HTTPS URL that works on phones, tablets, and desktops.
 
