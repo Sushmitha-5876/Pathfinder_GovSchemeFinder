@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SchemeFinder | Government Scheme Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="SchemeFinder home">
+        <span class="brand-mark">SF</span>
+        <span>
+          <strong>Scheme<span>Finder</span></strong>
+          <small>Government schemes for you</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#schemes">Schemes</a>
+        <a href="#saved">Saved</a>
+        <a href="#about">About</a>
+        <a href="#profile-heading">Eligibility Checker</a>
+      </div>
+
+      <div class="nav-actions">
+        <select id="languageSelect" aria-label="Choose language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="kn">ಕನ್ನಡ</option>
+        </select>
+        <button class="ghost-btn" id="loginBtn">Login / Sign Up</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Digital transformation for social impact</p>
+        <h1 data-i18n="heroTitle">Find Government Schemes You Are Eligible For</h1>
+        <p class="hero-subtitle" data-i18n="heroSubtitle">
+          Answer simple questions and discover central and state welfare schemes for education, health, agriculture, women, housing, finance and more.
+        </p>
+        <div class="trust-row">
+          <span>100% official links</span>
+          <span>Personalized results</span>
+          <span>Voice assisted</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="flag-stroke saffron"></div>
+        <div class="monument">
+          <div class="roof"></div>
+          <div class="tower"></div>
+          <div class="arch"></div>
+          <div class="base"></div>
+        </div>
+        <div class="flag-stroke green"></div>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="Search schemes">
+      <div class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search by scheme, benefit, department or keyword">
+        <button id="searchBtn">Search</button>
+        <button class="voice-btn" id="voiceBtn" aria-label="Search using voice">🎙</button>
+      </div>
+    </section>
+
+    <section class="profile-card" aria-labelledby="profile-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Personalized matching</p>
+          <h2 id="profile-heading">Find Schemes Based On Your Profile</h2>
+        </div>
+        <button class="link-btn" id="resetBtn">Reset</button>
+      </div>
+
+      <form class="profile-grid" id="profileForm">
+        <label>
+          Age
+          <select id="age">
+            <option value="">Select age</option>
+            <option value="student">Below 18</option>
+            <option value="adult">18 to 59</option>
+            <option value="senior">60 and above</option>
+          </select>
+        </label>
+        <label>
+          Gender
+          <select id="gender">
+            <option value="">Select gender</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>
+          Category
+          <select id="category">
+            <option value="">Select category</option>
+            <option value="general">General</option>
+            <option value="scst">SC / ST</option>
+            <option value="obc">OBC</option>
+            <option value="minority">Minority</option>
+          </select>
+        </label>
+        <label>
+          State
+          <select id="state">
+            <option value="">Select state</option>
+            <option value="all">Any state</option>
+            <option value="karnataka">Karnataka</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="tamilnadu">Tamil Nadu</option>
+            <option value="uttarpradesh">Uttar Pradesh</option>
+          </select>
+        </label>
+        <label>
+          Annual Income
+          <select id="income">
+            <option value="">Select income</option>
+            <option value="low">Below Rs 1 lakh</option>
+            <option value="middle">Rs 1 lakh to Rs 5 lakh</option>
+            <option value="high">Above Rs 5 lakh</option>
+          </select>
+        </label>
+        <label>
+          Occupation
+          <select id="occupation">
+            <option value="">Select occupation</option>
+            <option value="student">Student</option>
+            <option value="farmer">Farmer</option>
+            <option value="worker">Worker</option>
+            <option value="selfemployed">Self employed</option>
+            <option value="unemployed">Unemployed</option>
+          </select>
+        </label>
+        <button type="submit" class="primary-btn">Check Eligibility →</button>
+      </form>
+    </section>
+
+    <section class="category-tabs" aria-label="Scheme categories">
+      <button data-category="all" class="active">All</button>
+      <button data-category="education">Education</button>
+      <button data-category="health">Health</button>
+      <button data-category="agriculture">Agriculture</button>
+      <button data-category="women">Women</button>
+      <button data-category="finance">Finance</button>
+      <button data-category="housing">Housing</button>
+    </section>
+
+    <section class="results-section" id="schemes">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" id="resultCount">0 schemes found</p>
+          <h2>Top Schemes For You</h2>
+        </div>
+        <div class="result-actions">
+          <label>
+            Sort by
+            <select id="sortSelect">
+              <option value="match">Eligibility match</option>
+              <option value="name">Name</option>
+              <option value="category">Category</option>
+            </select>
+          </label>
+          <button class="ghost-light" id="exportBtn">Export PDF</button>
+        </div>
+      </div>
+
+      <div class="scheme-grid" id="schemeGrid"></div>
+    </section>
+
+    <section class="saved-section" id="saved">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Your shortlist</p>
+          <h2>Saved Schemes</h2>
+        </div>
+      </div>
+      <div class="saved-list" id="savedList"></div>
+    </section>
+
+    <section class="impact-strip" id="about">
+      <article>
+        <strong>Simple</strong>
+        <span>Uses easy profile questions instead of complex policy language.</span>
+      </article>
+      <article>
+        <strong>Guided</strong>
+        <span>Explains benefits, eligibility, documents and application steps.</span>
+      </article>
+      <article>
+        <strong>Inclusive</strong>
+        <span>Supports rural users with voice search and multilingual labels.</span>
+      </article>
+      <article>
+        <strong>Secure</strong>
+        <span>Stores saved schemes only in the browser for this prototype.</span>
+      </article>
+    </section>
+  </main>
+
+  <aside class="assistant-card" aria-label="Scheme assistant">
+    <div class="assistant-header">
+      <div>
+        <strong>Scheme Assistant</strong>
+        <small>Online</small>
+      </div>
+      <button id="assistantToggle" aria-label="Minimize assistant">×</button>
+    </div>
+    <div class="chat-log" id="chatLog"></div>
+    <form class="chat-form" id="chatForm">
+      <input id="chatInput" placeholder="Ask: which schemes can I apply for?">
+      <button type="submit">➜</button>
+    </form>
+  </aside>
+
+  <dialog class="scheme-modal" id="schemeModal">
+    <button class="modal-close" id="modalClose" aria-label="Close details">×</button>
+    <div id="modalContent"></div>
+  </dialog>
+
+  <dialog class="scheme-modal" id="loginModal">
+    <button class="modal-close" id="loginClose" aria-label="Close login">×</button>
+    <div class="login-content">
+      <p class="eyebrow">Demo account</p>
+      <h2>Login / Sign Up</h2>
+      <p>This prototype uses browser storage only. A real project can connect this form to Firebase, Supabase or your own backend later.</p>
+      <form class="login-form" id="loginForm">
+        <label>
+          Full Name
+          <input id="loginName" type="text" placeholder="Enter your name" required>
+        </label>
+        <label>
+          Mobile or Email
+          <input id="loginContact" type="text" placeholder="Enter mobile or email" required>
+        </label>
+        <button class="primary-btn" type="submit">Continue</button>
+      </form>
+      <p class="login-status" id="loginStatus"></p>
+    </div>
+  </dialog>
+
+  <footer class="footer" id="resources">
+    <div>
+      <a class="brand footer-brand" href="#home">
+        <span class="brand-mark">SF</span>
+        <span>
+          <strong>Scheme<span>Finder</span></strong>
+          <small>Government schemes for you</small>
+        </span>
+      </a>
+      <p>Your trusted platform to discover and access government schemes easily.</p>
+    </div>
+    <div>
+      <h3>Project Modules</h3>
+      <a href="#schemes">Scheme listing</a>
+      <a href="#profile-heading">Eligibility checker</a>
+      <a href="#saved">Saved schemes</a>
+    </div>
+    <div>
+      <h3>Next Upgrade</h3>
+      <p>Connect a real scheme API/database, add login, and add verified admin updates.</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

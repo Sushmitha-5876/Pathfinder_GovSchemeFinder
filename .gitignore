@@ -1,0 +1,21 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+
+# Node/build artifacts
+node_modules/
+client/node_modules/
+server/node_modules/
+dist/
+client/dist/
+
+# Environment files
+.env
+client/.env
+server/.env
